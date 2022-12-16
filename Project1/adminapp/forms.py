@@ -1,3 +1,6 @@
+import hashlib
+import random
+
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django import forms
 from authapp.models import User
@@ -23,6 +26,8 @@ class UserAdminRegisterForm(UserCreationForm):
         for filed_name, field in self.fields.items():
             field.widget.attrs['class'] = 'form-control py-4'
         self.fields['image'].widget.attrs['class'] = 'custom-file-input'
+
+
 
 
 class UserAdminProfileForm(UserChangeForm):
