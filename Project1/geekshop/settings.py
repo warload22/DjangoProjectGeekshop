@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'mainapp',
     'authapp',
     'basket',
-    'adminapp'
+    'adminapp',
+    'social_django'
 ]
 
 MIDDLEWARE = [
@@ -70,6 +71,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'mainapp.context_processors.basket',
             ],
         },
     },
@@ -156,3 +158,19 @@ EMAIL_FILE_PATH = 'tmp/email'
 # EMAIL_HOST_USER,EMAIL_HOST_PASSWORD = None, None
 
 #python - m smtpd -n -c DebuggingServer localhost:26
+
+
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'social_core.backends.vk.VKOAuth2'
+
+)
+
+SOCIAL_AUTH_VK_OAUTH2_KEY = os.getenv('SOCIAL_AUTH_VK_OAUTH2_KEY')
+SOCIAL_AUTH_VK_OAUTH2_SECRET = os.getenv('SOCIAL_AUTH_VK_OAUTH2_SECRET')
+SOCIAL_AUTH_VK_OAUTH2_API_VERSION = '5.131'
+
+
+#51549908
+#488qZDJL4JLNjBwy54N8
