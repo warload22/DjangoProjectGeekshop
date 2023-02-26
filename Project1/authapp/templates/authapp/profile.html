@@ -14,6 +14,8 @@
                     <img width="100" height="100"
                          src='{% if user.image %}
 
+
+
                              {{ user.image.url }}{% else %}{% static 'vendor/img/users/default_avatar.jpg' %} {% endif %}'
                          class="img-thumbnail">
                 </div>
@@ -55,6 +57,24 @@
                         <div class="col-lg-4">
                             <label class="small mb-1" for="{{ form.age.id_for_label }}">Возраст</label>
                             {{ form.age }}
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-lg-6">
+                            <div class="form-row">
+                                <div class="col-lg-6">
+                                    <label class="small mb-1" for="{{ profile.gender.id_for_label }}">Пол</label>
+                                    {{ profile.gender }}
+                                </div>
+                                <div class="col-lg-6">
+                                    <label class="small mb-1" for="{{ profile.langs.id_for_label }}">Язык</label>
+                                    {{ profile.langs }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <label class="small mb-1" for="{{ profile.about.id_for_label }}">О нас</label>
+                            {{ profile.about }}
                         </div>
                     </div>
                     <div class="form-row">
